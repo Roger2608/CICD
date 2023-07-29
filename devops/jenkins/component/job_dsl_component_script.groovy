@@ -1,14 +1,23 @@
 pipelineJob('hello-pipeline-inline') {
-  definition { cps { script("""
-    pipeline {
-      agent any
-      stages {
-        stage('Hello, World!') {
-          steps {
-            sh 'echo "Hello, World!"'
-          }
-        }
-      }
-    }
-  """) } }
+  definition { 
+  	cpsScm{
+  		scm {
+			gitSCM {
+				userRemoteConfigs {
+						userRemoteConfig {
+							url('https://github.com/Roger2608/CICD.git')
+							credentialsId('JenkinsGithub')
+						}
+				}
+				branches {
+					branchSpec {
+						name('*/feature/jobDSLForAPP')
+					}
+				}
+			}
+		}
+		lightweight('true')
+		scriptPath(Jenkinsfile)
+	}
+  }
 }
