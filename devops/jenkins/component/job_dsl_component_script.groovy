@@ -1,14 +1,12 @@
 pipelineJob('hello-pipeline-inline') {
   definition { 
-  	cpsScm{
+  	cpsScmFlowDefinition{
   		scm {
 			gitSCM {
 				userRemoteConfigs {
 						userRemoteConfig {
 							url('https://github.com/Roger2608/CICD.git')
 							credentialsId('JenkinsGithub')
-							name('origin')
-							refspec('')
 						}
 				}
 				branches {
