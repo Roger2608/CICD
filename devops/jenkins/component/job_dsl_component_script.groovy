@@ -25,7 +25,7 @@ pipelineJob('hello-pipeline-inline') {
 			}
 		}
 		lightweight(true)
-		scriptPath(Jenkinsfile)
+		scriptPath('Jenkinsfile')
 	}
   }
 }
