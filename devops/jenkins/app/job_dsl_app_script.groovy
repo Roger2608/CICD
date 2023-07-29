@@ -18,5 +18,10 @@ folder("${appName}") {
 				branch('*/feature/jobDSLForAPP')
 			}
 		}
+		steps {
+    dsl {
+      external('devops/jenkins/component/job_dsl_component_script.groovy')
+    }
+  }
 	}
 }
