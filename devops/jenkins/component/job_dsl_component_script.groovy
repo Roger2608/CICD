@@ -7,6 +7,7 @@ pipelineJob('hello-pipeline-inline') {
 						userRemoteConfig {
 							url('https://github.com/Roger2608/CICD.git')
 							credentialsId('JenkinsGithub')
+							name('CICD')
 						}
 				}
 				branches {
