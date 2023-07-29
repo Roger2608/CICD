@@ -1,4 +1,4 @@
-pipelineJob('hello-pipeline-inline') {
+/*pipelineJob('hello-pipeline-inline') {
   definition { 
   	cpsScmFlowDefinition{
   		scm {
@@ -13,7 +13,7 @@ pipelineJob('hello-pipeline-inline') {
 				}
 				branches {
 					branchSpec {
-						name('*/feature/jobDSLForAPP')
+						name('feature/jobDSLForAPP')
 					}
 				}
 				browser {
@@ -29,3 +29,21 @@ pipelineJob('hello-pipeline-inline') {
 	}
   }
 }
+*/
+
+multibranchPipelineJob('example') {
+    branchSources {
+        git {
+            id('123456789')
+            remote('https://github.com/jenkinsci/job-dsl-plugin.git')
+            credentialsId('github-ci')
+            includes('JENKINS-*')
+        }
+    }
+    orphanedItemStrategy {
+        discardOldItems {
+            numToKeep(20)
+        }
+    }
+}
+
