@@ -24,7 +24,7 @@ pipelineJob('hello-pipeline-inline') {
 				gitTool('/usr/bin/git')
 			}
 		}
-		lightweight('true')
+		lightweight(true)
 		scriptPath(Jenkinsfile)
 	}
   }
