@@ -16,6 +16,12 @@ pipelineJob('hello-pipeline-inline') {
 						name('*/feature/jobDSLForAPP')
 					}
 				}
+				browser {
+					GitWeb {
+						repoUrl('https://github.com/Roger2608/CICD.git')
+					}
+				}
+				gitTool('/usr/bin/git')
 			}
 		}
 		lightweight('true')
