@@ -17,7 +17,7 @@ pipelineJob('hello-pipeline-inline') {
 					}
 				}
 				browser {
-					GitWeb {
+					gitWeb {
 						repoUrl('https://github.com/Roger2608/CICD.git')
 					}
 				}
