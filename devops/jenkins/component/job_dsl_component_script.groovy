@@ -1,5 +1,5 @@
 /*pipelineJob('hello-pipeline-inline') {
-  definition { 
+  definition {    
   	cpsScmFlowDefinition{
   		scm {
 			gitSCM {
