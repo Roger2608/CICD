@@ -5,6 +5,7 @@ folder("${appName}") {
 		description('Job DSL para generar un nuevo Job')
 		parameters {
     stringParam('name', defaultValue = 'write_name_of_component', description = 'name of component')
+stringParam('app', defaultValue = "${appName}", description = 'name of app')
   }
 		// Define los pasos para clonar el repositorio privado utilizando las credenciales
 		scm {

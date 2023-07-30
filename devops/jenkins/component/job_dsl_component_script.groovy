@@ -30,20 +30,23 @@
   }
 }
 */
-folder("./${name}") 
-	multibranchPipelineJob("${name}") {
+import java.util.UUID
+
+folder("${app}/my-components"){
+	displayName("my-components")
+        description("Descripción del Folder para componentes de ${app}")
+}
+multibranchPipelineJob("${app}/my-components/${name}") {
 	    branchSources {
-	        git {
-        	    	id('123456789')
-            		remote('https://github.com/jenkinsci/job-dsl-plugin.git')
-            		credentialsId('github-ci')
-            		includes('JENKINS-*')
-        	}
+		git {
+			id(UUID.randomUUID().toString())
+			remote('https://github.com/Roger2608/CICD.git')
+			credentialsId('JenkinsGithub')
+		}
 	    }
 	    orphanedItemStrategy {
-        		discardOldItems {
-            			numToKeep(20)
-        		}
-    		}
+			discardOldItems {
+				numToKeep(20)
+			}
+		}
 	}
-
