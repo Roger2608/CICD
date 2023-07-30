@@ -4,9 +4,7 @@ folder("${appName}") {
 	job("${appName}/job_${appName}_for_components") {
 		description('Job DSL para generar un nuevo Job')
 		parameters {
-    stringParam('nombre', defaultValue = 'Julian', description = 'Parametro de cadena para el Job Booleano')
-    choiceParam('planeta', ['Mercurio', 'Venus', 'Tierrra', 'Marte', 'Jupiter', 'Saturno', 'Urano', 'Neptuno'])
-    booleanParam('agente', false)
+    stringParam('name', defaultValue = 'write_name_of_component', description = 'name of component')
   }
 		// Define los pasos para clonar el repositorio privado utilizando las credenciales
 		scm {

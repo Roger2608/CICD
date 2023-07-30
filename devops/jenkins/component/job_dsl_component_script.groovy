@@ -30,20 +30,20 @@
   }
 }
 */
-
-multibranchPipelineJob('example') {
-    branchSources {
-        git {
-            id('123456789')
-            remote('https://github.com/jenkinsci/job-dsl-plugin.git')
-            credentialsId('github-ci')
-            includes('JENKINS-*')
-        }
-    }
-    orphanedItemStrategy {
-        discardOldItems {
-            numToKeep(20)
-        }
-    }
-}
+folder("./${name}") 
+	multibranchPipelineJob("${name}") {
+	    branchSources {
+	        git {
+        	    	id('123456789')
+            		remote('https://github.com/jenkinsci/job-dsl-plugin.git')
+            		credentialsId('github-ci')
+            		includes('JENKINS-*')
+        	}
+	    }
+	    orphanedItemStrategy {
+        		discardOldItems {
+            			numToKeep(20)
+        		}
+    		}
+	}
 
