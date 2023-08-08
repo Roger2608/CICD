@@ -1,5 +1,5 @@
 /*pipelineJob('hello-pipeline-inline') {
-  definition {    
+  definition {
   	cpsScmFlowDefinition{
   		scm {
 			gitSCM {
@@ -32,21 +32,21 @@
 */
 import java.util.UUID
 
-folder("${app}/my-components"){
-	displayName("my-components")
-        description("Descripción del Folder para componentes de ${app}")
+folder("${app}/my-components") {
+  displayName("my-components")
+  description("Descripción del Folder para componentes de ${app}")
 }
 multibranchPipelineJob("${app}/my-components/${name}") {
-	    branchSources {
-		git {
-			id(UUID.randomUUID().toString())
-			remote('https://github.com/Roger2608/CICD.git')
-			credentialsId('JenkinsGithub')
-		}
-	    }
-	    orphanedItemStrategy {
-			discardOldItems {
-				numToKeep(20)
-			}
-		}
-	}
+  branchSources {
+    git {
+      id(UUID.randomUUID().toString())
+      remote('https://github.com/Roger2608/CICD.git')
+      credentialsId('JenkinsGithub')
+    }
+  }
+  orphanedItemStrategy {
+    discardOldItems {
+      numToKeep(20)
+    }
+  }
+}
