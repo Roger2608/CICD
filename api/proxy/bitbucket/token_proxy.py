@@ -19,7 +19,3 @@ def get_access_token():
         return access_token
     else:
         print('Error:', response.status_code, response.text)
-
-
-if __name__ == '__main__':
-    get_access_token()

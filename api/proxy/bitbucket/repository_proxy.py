@@ -4,7 +4,7 @@ import requests
 
 from model.entities.bitbucket.repository_entity import CreateRepository
 from util import constants as const
-from service.bitbucket import token_service as token
+from api.proxy.bitbucket import token_proxy as token
 
 
 def invoice_create_new_repository(workspace: str, repository: CreateRepository):

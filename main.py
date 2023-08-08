@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 
-from model.api.expose import project_controller as project
-from model.api.expose import repository_controller as repository
+from api.expose.bitbucket import repository_controller as repository, project_controller as project
+from api.expose.jenkins import jenkins_controller as jenkins
 
 app = FastAPI()
 
 app.include_router(project.project_route)
 app.include_router(repository.repository_route)
+app.include_router(jenkins.jenkins_route)

@@ -3,7 +3,7 @@ import json
 import requests
 
 from model.entities.bitbucket.project_entity import CreateProject
-from service.bitbucket import token_service as token
+from api.proxy.bitbucket import token_proxy as token
 from util import constants as const
 
 
