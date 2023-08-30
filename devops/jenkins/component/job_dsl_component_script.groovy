@@ -1,10 +1,10 @@
 folder("${app}/my-components") {
   displayName("my-components")
   description("Descripción del Folder para componentes de ${app}")
-  folder("${app}/my-components/${name}") {
+  folder("/${name}") {
       displayName("my-components")
       description("Descripción del Folder del componente a crear")
-      folder("${app}/my-components/${name}/dev") {
+      folder("/dev") {
           displayName("my-components")
           description("Descripción del Folder del componente a crear")
           pipelineJob("${app}/my-components/${name}/dev/${name}_dev") {
