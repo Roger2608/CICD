@@ -46,7 +46,7 @@ pipelineJob("${app}/my-components/${component_name}/dev/${component_name}_dev") 
                 }
             }
             lightweight(true)
-            scriptPath('devops//jenkins/dev/Jenkinsfile')
+            scriptPath('devops/jenkins/dev/Jenkinsfile')
         }
       }
     }
@@ -80,7 +80,7 @@ pipelineJob("${app}/my-components/${component_name}/cert/${component_name}_cert"
                 }
             }
             lightweight(true)
-            scriptPath('devops//jenkins/cert/Jenkinsfile')
+            scriptPath('devops/jenkins/cert/Jenkinsfile')
         }
       }
     }
@@ -112,7 +112,7 @@ pipelineJob("${app}/my-components/${component_name}/prod/${component_name}_prod"
                 }
             }
             lightweight(true)
-            scriptPath('devops//jenkins/prod/Jenkinsfile')
+            scriptPath('devops/jenkins/prod/Jenkinsfile')
         }
       }
     }
