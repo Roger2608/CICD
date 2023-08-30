@@ -3,19 +3,19 @@ folder("${app}/my-components") {
   description("Descripción del Folder para componentes de ${app}")
 }
 folder("${app}/my-components/${name}") {
-  displayName("my-components")
+  displayName("${name}")
   description("Descripción del Folder del componente a crear")
 }
 folder("${app}/my-components/${name}/dev") {
-  displayName("my-components")
+  displayName("dev")
   description("Descripción del Folder del componente a crear")
 }
 folder("${app}/my-components/${name}/cert") {
-  displayName("my-components")
+  displayName("cert")
   description("Descripción del Folder del componente a crear")
 }
 folder("${app}/my-components/${name}/prod") {
-  displayName("my-components")
+  displayName("prod")
   description("Descripción del Folder del componente a crear")
 
 }
@@ -53,7 +53,7 @@ pipelineJob("${app}/my-components/${name}/dev/${name}_dev") {
 
 
 
-pipelineJob("${app}/my-components/${name}/dev/${name}_cert") {
+pipelineJob("${app}/my-components/${name}/cert/${name}_cert") {
       definition {
         cpsScmFlowDefinition{
             scm {
@@ -85,7 +85,7 @@ pipelineJob("${app}/my-components/${name}/dev/${name}_cert") {
       }
     }
 
-pipelineJob("${app}/my-components/${name}/dev/${name}_prod") {
+pipelineJob("${app}/my-components/${name}/prod/${name}_prod") {
       definition {
         cpsScmFlowDefinition{
             scm {
