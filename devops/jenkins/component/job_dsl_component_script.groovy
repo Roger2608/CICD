@@ -41,7 +41,7 @@ multibranchPipelineJob("${app}/my-components/${name}") {
     git {
       id(UUID.randomUUID().toString())
       remote("https://github.com/Roger2608/${name}.git")
-      credentialsId('JenkinsGithub')
+      credentialsId('github')
     }
   }
   orphanedItemStrategy {

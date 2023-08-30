@@ -12,7 +12,7 @@ folder("${appName}") {
       git {
         remote {
           url('https://github.com/Roger2608/CICD.git')
-          credentials('JenkinsGithub')
+          credentials('github')
         }
         branch('*/feature/jobDSLForAPP')
       }
