@@ -1,52 +1,115 @@
-/*pipelineJob('hello-pipeline-inline') {
-  definition {
-  	cpsScmFlowDefinition{
-  		scm {
-			gitSCM {
-				userRemoteConfigs {
-						userRemoteConfig {
-							url('https://github.com/Roger2608/CICD.git')
-							credentialsId('JenkinsGithub')
-							name('origin')
-							refspec('')
-						}
-				}
-				branches {
-					branchSpec {
-						name('feature/jobDSLForAPP')
-					}
-				}
-				browser {
-					gitWeb {
-						repoUrl('https://github.com/Roger2608/CICD.git')
-					}
-				}
-				gitTool('/usr/bin/git')
-			}
-		}
-		lightweight(true)
-		scriptPath('devops/jenkins/Jenkinsfile')
-	}
-  }
-}
-*/
-import java.util.UUID
-
 folder("${app}/my-components") {
   displayName("my-components")
   description("Descripción del Folder para componentes de ${app}")
 }
-multibranchPipelineJob("${app}/my-components/${name}") {
-  branchSources {
-    git {
-      id(UUID.randomUUID().toString())
-      remote("https://github.com/Roger2608/${name}.git")
-      credentialsId('github')
+folder("${app}/my-components/${name}") {
+  displayName("my-components")
+  description("Descripción del Folder del componente a crear")
+}
+folder("${app}/my-components/${name}/dev") {
+  displayName("my-components")
+  description("Descripción del Folder del componente a crear")
+  pipelineJob("${app}/my-components/${name}/dev/${name}_dev") {
+      definition {
+        cpsScmFlowDefinition{
+            scm {
+                gitSCM {
+                    userRemoteConfigs {
+                            userRemoteConfig {
+                                url('https://github.com/Roger2608/CICD.git')
+                                credentialsId('github')
+                                name('origin')
+                                refspec('')
+                            }
+                    }
+                    branches {
+                        branchSpec {
+                            name('feature/jobDSLForAPP')
+                        }
+                    }
+                    browser {
+                        gitWeb {
+                            repoUrl('https://github.com/Roger2608/CICD.git')
+                        }
+                    }
+                    gitTool('/usr/bin/git')
+                }
+            }
+            lightweight(true)
+            scriptPath('devops//jenkins/dev/Jenkinsfile')
+        }
+      }
     }
-  }
-  orphanedItemStrategy {
-    discardOldItems {
-      numToKeep(20)
+}
+
+folder("${app}/my-components/${name}/cert") {
+  displayName("my-components")
+  description("Descripción del Folder del componente a crear")
+  pipelineJob("${app}/my-components/${name}/dev/${name}_cert") {
+      definition {
+        cpsScmFlowDefinition{
+            scm {
+                gitSCM {
+                    userRemoteConfigs {
+                            userRemoteConfig {
+                                url('https://github.com/Roger2608/CICD.git')
+                                credentialsId('github')
+                                name('origin')
+                                refspec('')
+                            }
+                    }
+                    branches {
+                        branchSpec {
+                            name('develop')
+                        }
+                    }
+                    browser {
+                        gitWeb {
+                            repoUrl('https://github.com/Roger2608/CICD.git')
+                        }
+                    }
+                    gitTool('/usr/bin/git')
+                }
+            }
+            lightweight(true)
+            scriptPath('devops//jenkins/cert/Jenkinsfile')
+        }
+      }
     }
-  }
+}
+
+folder("${app}/my-components/${name}/prod") {
+  displayName("my-components")
+  description("Descripción del Folder del componente a crear")
+  pipelineJob("${app}/my-components/${name}/dev/${name}_prod") {
+      definition {
+        cpsScmFlowDefinition{
+            scm {
+                gitSCM {
+                    userRemoteConfigs {
+                            userRemoteConfig {
+                                url('https://github.com/Roger2608/CICD.git')
+                                credentialsId('github')
+                                name('origin')
+                                refspec('')
+                            }
+                    }
+                    branches {
+                        branchSpec {
+                            name('master')
+                        }
+                    }
+                    browser {
+                        gitWeb {
+                            repoUrl('https://github.com/Roger2608/CICD.git')
+                        }
+                    }
+                    gitTool('/usr/bin/git')
+                }
+            }
+            lightweight(true)
+            scriptPath('devops//jenkins/prod/Jenkinsfile')
+        }
+      }
+    }
 }
